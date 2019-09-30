@@ -21,7 +21,6 @@ import { trigger, transition, style, animate } from '@angular/animations';
     ])
   ]
 })
-
 export class TodoListComponent implements OnInit {
   todos: Todo[];
   todoTitle: string;
@@ -114,7 +113,7 @@ export class TodoListComponent implements OnInit {
 
   checkAllTodos(): void {
     // tslint:disable-next-line: deprecation
-    this.todos.forEach(todo => todo.completed = (event.target as HTMLInputElement).checked);
+    this.todos.forEach(todo => todo.completed = ( event.target as HTMLInputElement).checked);
     this.anyRemainingModel = this.anyRemaining();
   }
 
@@ -123,7 +122,6 @@ export class TodoListComponent implements OnInit {
   }
 
   todosFiltered(): Todo[] {
-    console.log(this.todos);
     if (this.filter === 'all') {
       return this.todos;
     } else if (this.filter === 'active') {
@@ -131,6 +129,7 @@ export class TodoListComponent implements OnInit {
     } else if (this.filter === 'completed') {
       return this.todos.filter(todo => todo.completed);
     }
+
     return this.todos;
   }
 
